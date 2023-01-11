@@ -331,3 +331,4 @@ build-*
 .idea/
 cmake-build*
 
+/out/build/x64-Debug (既定値)

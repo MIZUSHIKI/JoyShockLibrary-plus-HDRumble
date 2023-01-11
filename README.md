@@ -1,3 +1,18 @@
+# JoyShockLibrary-plus-HDRumble
+Added HD Rumble function ( for Nintendo Switch Device ) to [JibbSmart/JoyShockLibrary](https://github.com/JibbSmart/JoyShockLibrary).<br>
+( Used [libusb/hidapi](https://github.com/libusb/hidapi)/windows )
+
+>JibbSmart/JoyShockLibrary に Nintendo Switch デバイス用のHD振動機能を追加。
+>libusb/hidapi/windows を突っ込んでsln(プロジェクトのプロパティ)設定を変更したら、Visual Studio 2019 でビルド出来ました。
+>>Visual Studio 2022 でビルドしたい場合は、Visual Studio Installer を使って下記１つを別途インストールしてください。
+>>* C++ によるデスクトップ開発＞インストールの詳細＞オプション＞✅ MSVC v142 - VS2019 C++ x64/x86 ビルドツール(v14.29)
+
+<br>
+
+Below is [JibbSmart/JoyShockLibrary](https://github.com/JibbSmart/JoyShockLibrary) / README.md
+
+--------------------
+--------------------
 # JoyShockLibrary
 The Sony PlayStation's DualShock 4, DualSense, Nintendo Switch Joy-Cons (used in pairs), and Nintendo Switch Pro Controller have much in common. They have many of the features expected of modern game controllers. They also have an incredibly versatile and underutilised input that their biggest rival (Microsoft's Xbox One controller) doesn't have: the gyro.
 
@@ -141,7 +156,20 @@ Player 3: ```x-x-x```
 Player 4: ```xx-xx```
 Player 5: ```xxxxx```
 
-**void JslSetRumble(int deviceId, int smallRumble, int bigRumble)** - DualShock 4s have two types of rumble, and they can be set at the same time with different intensities. These can be set from 0 to 255. Nintendo devices support rumble as well, but totally differently. They call it "HD rumble", and it's a great feature, but JoyShockLibrary doesn't yet support it.
+**void JslSetRumble(int deviceId, int smallRumble, int bigRumble)** - DualShock 4s have two types of rumble, and they can be set at the same time with different intensities. These can be set from 0 to 255. 
+
+>\<Add> JoyShockLibrary-plus-HDRumble
+
+**void JslSetHDRumble(int deviceId, float LowFrequency, float LowAmplitude, float HighFrequency, float HighAmplitude)**
+
+**void JslSetHDRumbleLR(int deviceId, float LowFrequency_L, float LowAmplitude_L, float HighFrequency_L, float HighAmplitude_L, float LowFrequency_R, float LowAmplitude_R, float HighFrequency_R, float HighAmplitude_R)** 
+
+\- HD Rumble for Nintendo Switch devices. 1 command vibrates for about 1 second.
+
+***Frequency:*** Low 41-626[Hz], High 82-1252[Hz]<br>
+***Amplitude:*** 0.0-1.0
+
+>\</Add> JoyShockLibrary-plus-HDRumble
 
 ## Known and Perceived Issues
 ### Bluetooth connectivity
@@ -182,4 +210,14 @@ The gravity calculation and gyro calibration is handled by another library of mi
   * How gamers can play any PC game with gyro controls using [JoyShockMapper](https://github.com/JibbSmart/JoyShockMapper). Legacy versions use JoyShockLibrary to read from supported controllers, but the standard version uses SDL2 to support more controllers.
 
 ## License
-JoyShockLibrary is licensed under the MIT License - see [LICENSE.md](LICENSE.md).
+JoyShockLibrary is licensed under the MIT License - see [LICENSE.md](https://github.com/JibbSmart/JoyShockLibrary/blob/master/LICENSE.md).
+
+--------------------
+--------------------
+<br>
+
+## Releases (-plus-HDRumble)
+[here](https://github.com/MIZUSHIKI/JoyShockLibrary-plus-HDRumble/releases). Included is a 64-bit dll and a 32-bit dll, both for Windows, and JoyShockLibrary.h.
+
+## License (-plus-HDRumble)
+JoyShockLibrary-plus-HDRumble is licensed under the MIT License - see [LICENSE.md](LICENSE.md).
