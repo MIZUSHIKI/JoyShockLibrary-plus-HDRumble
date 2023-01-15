@@ -791,7 +791,7 @@ void JslSetRumble(int deviceId, int smallRumble, int bigRumble)
 			jc->led_g,
 			jc->led_b);
 	}
-    else if (jc != nullptr && jc->controller_type == ControllerType::s_ds4) {
+    else if (jc != nullptr && jc->controller_type == ControllerType::s_ds) {
         jc->small_rumble = smallRumble;
         jc->big_rumble = bigRumble;
         jc->set_ds5_rumble_light(
